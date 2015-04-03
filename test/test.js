@@ -1,11 +1,29 @@
-/*global describe, it */
-'use strict';
-var assert = require('assert');
-var kissmetricsProcessor = require('../');
+/* globals describe, it, before*/
+(function () {
+	'use strict';
+	var chai = require('chai');
+	// var chaiAsPromised = require('chai-as-promised');
+	// chai.use(chaiAsPromised);
+	var should = require('chai').should();
+	var expect = chai.expect;
 
-describe('kissmetrics-processor node module', function () {
-  it('must have at least one test', function () {
-    kissmetricsProcessor();
-    assert(false, 'I was too lazy to write any tests. Shame on me.');
-  });
-});
+	var s3_config = {
+		accessKeyId: 'AKIAIKSNXIKWMHYE7ZSA',
+		secretAccessKey: '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',
+	};
+
+	var options = {};
+
+	describe('kue_concierge', function () {
+		var KmProcessor = require('../index.js');
+		describe('exports', function () {
+			var kmProcessor;
+			before(function() {
+				kmProcessor = new KmProcessor(s3_config, options);
+			});
+			it('should initialize a client', function () {
+				expect(kmProcessor).to.have.a.property('S3');
+			});
+		});
+	});
+}());
