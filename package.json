@@ -1,0 +1,34 @@
+{
+  "name": "kissmetrics-processor",
+  "version": "0.0.0",
+  "description": "The best module ever.",
+  "homepage": "https://github.com/MadKudu/kissmetrics-processor",
+  "author": {
+    "name": "Paul Cothenet",
+    "email": "paul@madkudu.com",
+    "url": "http://attackwithnumbers.com"
+  },
+  "repository": "pcothenet/kissmetrics-processor",
+  "license": "MIT",
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "kissmetrics-processor",
+    "kissmetrics"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-nodeunit": "^0.4.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "load-grunt-tasks": "^1.0.0",
+    "time-grunt": "^1.0.0",
+    "grunt-mocha-cli": "^1.11.0",
+    "jshint-stylish": "^1.0.0"
+  },
+  "scripts": {
+    "test": "grunt"
+  }
+}
