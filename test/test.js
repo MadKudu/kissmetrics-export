@@ -9,8 +9,9 @@
 	var expect = chai.expect;
 
 	var s3_config = {
-		accessKeyId: 'AKIAIKSNXIKWMHYE7ZSA',
-		secretAccessKey: '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',
+		//userName: 'kissmetrics_processor',
+		accessKeyId: 'AKIAIGXARIHO3TZTGRGA',
+		secretAccessKey: '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',
 	};
 
 	var options = {};
@@ -96,6 +97,15 @@
 					toDate: new Date('2015-03-09')
 				};
 				return kmProcessor.listS3Objects(dateRange).then(function(data) {
+					console.log(data);
+					expect(typeof data).to.not.equal('undefined');
+				});
+			});
+		});
+		describe('getS3Object', function () {
+			it('should get an object', function () {
+				return kmProcessor.getS3Object('revisions/118.json').then(function(data) {
+					console.log(data.Body.toString('utf-8'));
 					expect(typeof data).to.not.equal('undefined');
 				});
 			});
