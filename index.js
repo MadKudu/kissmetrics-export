@@ -1,1 +1,1 @@
-module.exports = require('./lib/mixpanel_processor.js');
+module.exports = require('./lib/kissmetrics_processor.js');
