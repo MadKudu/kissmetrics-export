@@ -1,6 +1,4 @@
-#  [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-url]][daviddm-image]
-
-> The best module ever.
+#  [![NPM version][npm-image]][npm-url] [![Build Status](https://travis-ci.org/MadKudu/kissmetrics-processor.svg)](https://travis-ci.org/MadKudu/kissmetrics-processor) [![Dependency Status](https://david-dm.org/MadKudu/kissmetrics-processor.svg)](https://david-dm.org/MadKudu/kissmetrics-processor)
 
 
 ## Install
@@ -8,7 +6,6 @@
 ```sh
 $ npm install --save kissmetrics-processor
 ```
-
 
 ## Usage
 
@@ -18,6 +15,11 @@ var kissmetrics-processor = require('kissmetrics-processor');
 kissmetrics-processor('Rainbow');
 ```
 
+## Inspiration
+
+https://github.com/clay-whitley/export-processor
+https://github.com/HouseTrip/km-db
+https://github.com/mk-anselme/mixpanel-data-export-js
 
 ## License
 
