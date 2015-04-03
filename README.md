@@ -1,4 +1,4 @@
-#  [![NPM version][npm-image]][npm-url] [![Build Status](https://travis-ci.org/MadKudu/kissmetrics-processor.svg)](https://travis-ci.org/MadKudu/kissmetrics-processor) [![Dependency Status](https://david-dm.org/MadKudu/kissmetrics-processor.svg)](https://david-dm.org/MadKudu/kissmetrics-processor)
+#  [![npm version](https://badge.fury.io/js/kissmetrics-processor.svg)](http://badge.fury.io/js/kissmetrics-processor) [![Build Status](https://travis-ci.org/MadKudu/kissmetrics-processor.svg)](https://travis-ci.org/MadKudu/kissmetrics-processor) [![Dependency Status](https://david-dm.org/MadKudu/kissmetrics-processor.svg)](https://david-dm.org/MadKudu/kissmetrics-processor)
 
 
 ## Install
