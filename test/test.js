@@ -14,16 +14,27 @@
 		secretAccessKey: 'DU8D4MqLtwOlzy+NlSh4iZ0hkkjvNbbaGmRmVAYN',
 	};
 
-	describe('KmProcessor', function () {
-		var KmProcessor = require('../lib/kissmetrics_processor');
-		var kmProcessor;
-		before(function() {
-			kmProcessor = new KmProcessor(config);
-		});
-		describe('s3', function() {
-			it('should have a s3 object', function () {
-				expect(kmProcessor).to.have.a.property('s3');
+	describe('KmStream', function () {
+		var parameters = {
+			fromDate: new Date('2015-04-01'),
+			toDate: new Date('2015-04-03')
+		};
+		var KmProcessor = require('../lib/index');
+		var kmProcessor = new KmProcessor(config, parameters);
+		var stream = kmProcessor.stream;
+		describe('bla', function() {
+			it('should stream data', function (done) {
+				this.timeout('60000');
+				stream.on('data', function(data) {
+					console.log(data);
+				});
+				stream.on('end', function() {
+					console.log('done');
+					done();
+				});
 			});
 		});
 	});
 }());
+
+
