@@ -1,23 +1,41 @@
-#  [![npm version](https://badge.fury.io/js/kissmetrics-processor.svg)](http://badge.fury.io/js/kissmetrics-processor) [![Build Status](https://travis-ci.org/MadKudu/kissmetrics-processor.svg)](https://travis-ci.org/MadKudu/kissmetrics-processor) [![Dependency Status](https://david-dm.org/MadKudu/kissmetrics-processor.svg)](https://david-dm.org/MadKudu/kissmetrics-processor)
+#  [![npm version](https://badge.fury.io/js/kissmetrics-export.svg)](http://badge.fury.io/js/kissmetrics-export) [![Build Status](https://travis-ci.org/MadKudu/kissmetrics-export.svg)](https://travis-ci.org/MadKudu/kissmetrics-export) [![Dependency Status](https://david-dm.org/MadKudu/kissmetrics-export.svg)](https://david-dm.org/MadKudu/kissmetrics-export)
 
 
 ## Install
 
 ```sh
-$ npm install --save kissmetrics-processor
+$ npm install --save kissmetrics-export
 ```
 
 ## Usage
 
 ```js
-var kissmetrics-processor = require('kissmetrics-processor');
+var kissmetrics-export = require('kissmetrics-export');
+var kmExport = new KmExport(config, parameters);
+```
 
-kissmetrics-processor('Rainbow');
+where parameters is of the form
+
+```js
+var parameters = {
+	fromDate: new Date('2015-04-01'),
+	toDate: new Date('2015-04-03')
+};
+```
+
+```js
+var stream = kmExport.stream;
+stream.on('data', function(data) {
+	console.log(data);
+});
+stream.on('end', function() {
+	console.log('done');
+});
 ```
 
 ## Inspiration
 
-https://github.com/clay-whitley/export-processor
+https://github.com/clay-whitley/export-export
 https://github.com/HouseTrip/km-db
 https://github.com/mk-anselme/mixpanel-data-export-js
 
@@ -26,9 +44,9 @@ https://github.com/mk-anselme/mixpanel-data-export-js
 MIT © [Paul Cothenet](http://attackwithnumbers.com)
 
 
-[npm-url]: https://npmjs.org/package/kissmetrics-processor
-[npm-image]: https://badge.fury.io/js/kissmetrics-processor.svg
-[travis-url]: https://travis-ci.org/pcothenet/kissmetrics-processor
-[travis-image]: https://travis-ci.org/pcothenet/kissmetrics-processor.svg?branch=master
-[daviddm-url]: https://david-dm.org/pcothenet/kissmetrics-processor.svg?theme=shields.io
-[daviddm-image]: https://david-dm.org/pcothenet/kissmetrics-processor
+[npm-url]: https://npmjs.org/package/kissmetrics-export
+[npm-image]: https://badge.fury.io/js/kissmetrics-export.svg
+[travis-url]: https://travis-ci.org/pcothenet/kissmetrics-export
+[travis-image]: https://travis-ci.org/pcothenet/kissmetrics-export.svg?branch=master
+[daviddm-url]: https://david-dm.org/pcothenet/kissmetrics-export.svg?theme=shields.io
+[daviddm-image]: https://david-dm.org/pcothenet/kissmetrics-export
