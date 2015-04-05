@@ -1,8 +1,8 @@
 {
-  "name": "kissmetrics-processor",
+  "name": "kissmetrics-export",
   "version": "0.0.1",
   "description": "Kissmetrics parser in node.js.",
-  "homepage": "https://github.com/MadKudu/kissmetrics-processor",
+  "homepage": "https://github.com/MadKudu/kissmetrics-export",
   "author": {
     "name": "Paul Cothenet",
     "email": "paul@madkudu.com",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/MadKudu/kissmetrics-processor.git"
+    "url": "https://github.com/MadKudu/kissmetrics-export.git"
   },
   "license": "MIT",
   "files": [
     "./lib/index.js"
   ],
   "keywords": [
-    "kissmetrics-processor",
+    "kissmetrics-export",
     "kissmetrics"
   ],
   "dependencies": {
