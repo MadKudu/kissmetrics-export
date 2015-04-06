@@ -10,8 +10,8 @@
 
 	var config = {
 		Bucket: 'madkudu-test-kissmetrics-20150225',
-		accessKeyId: 'AKIAIGXARIHO3TZTGRGA',
-		secretAccessKey: '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',
+		accessKeyId: 'AKIAIBVFBYPXUHTJ3FEQ',
+		secretAccessKey: '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',
 	};
 
 	var options = {};
