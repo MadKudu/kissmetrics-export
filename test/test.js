@@ -20,8 +20,8 @@
 			toDate: new Date('2015-04-03')
 		};
 		var KmProcessor = require('../lib/index');
-		var kmProcessor = new KmProcessor(config, parameters);
-		var stream = kmProcessor.stream;
+		var kmProcessor = new KmProcessor(config);
+		var stream = kmProcessor.stream(parameters);
 		describe('bla', function() {
 			it('should stream data', function (done) {
 				this.timeout('60000');

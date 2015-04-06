@@ -11,7 +11,17 @@ $ npm install --save kissmetrics-export
 
 ```js
 var kissmetrics-export = require('kissmetrics-export');
-var kmExport = new KmExport(config, parameters);
+var kmExport = new KmExport(config);
+```
+
+```js
+var stream = kmExport.stream(parameters);
+stream.on('data', function(data) {
+	console.log(data);
+});
+stream.on('end', function() {
+	console.log('done');
+});
 ```
 
 where parameters is of the form
@@ -21,16 +31,6 @@ var parameters = {
 	fromDate: new Date('2015-04-01'),
 	toDate: new Date('2015-04-03')
 };
-```
-
-```js
-var stream = kmExport.stream;
-stream.on('data', function(data) {
-	console.log(data);
-});
-stream.on('end', function() {
-	console.log('done');
-});
 ```
 
 ## Inspiration
