@@ -9,9 +9,9 @@
 	var expect = chai.expect;
 
 	var config = {
-		Bucket: 'madkudu-test-kissmetrics-20150225',
-		accessKeyId: 'AKIAIGXARIHO3TZTGRGA',
-		secretAccessKey: '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',
+		Bucket: process.env.s3_bucket,
+		accessKeyId: process.env.s3_access_key,
+		secretAccessKey: process.env.s3_secret_access_key,
 	};
 
 	describe('KmStream', function () {
@@ -26,7 +26,7 @@
 			it('should stream data', function (done) {
 				this.timeout('60000');
 				stream.on('data', function(data) {
-					console.log(data);
+					expect(data).to.be.not.null;
 				});
 				stream.on('end', function() {
 					console.log('done');

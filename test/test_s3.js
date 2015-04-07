@@ -9,9 +9,9 @@
 	var expect = chai.expect;
 
 	var config = {
-		Bucket: 'madkudu-test-kissmetrics-20150225',
-		accessKeyId: 'AKIAIBVFBYPXUHTJ3FEQ',
-		secretAccessKey: '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',
+		Bucket: process.env.s3_bucket,
+		accessKeyId: process.env.s3_access_key,
+		secretAccessKey: process.env.s3_secret_access_key,
 	};
 
 	var options = {};
