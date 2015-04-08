@@ -77,18 +77,22 @@
 			});
 		});
 		describe('listS3Objects', function () {
-			it('should list objects in the bucket', function () {
-				return kmS3.listS3Objects().then(function(data) {
+			it('should list objects in the bucket', function (done) {
+				this.timeout(10000);
+				kmS3.listS3Objects().then(function(data) {
 					expect(typeof data).to.not.equal('undefined');
+					done();
 				});
 			});
-			it('should list objects with a date range', function () {
+			it('should list objects with a date range', function (done) {
+				this.timeout(10000);
 				var dateRange = {
 					fromDate: new Date('2015-03-08'),
 					toDate: new Date('2015-03-09')
 				};
-				return kmS3.listS3Objects(dateRange).then(function(data) {
+				kmS3.listS3Objects(dateRange).then(function(data) {
 					expect(typeof data).to.not.equal('undefined');
+					done();
 				});
 			});
 		});

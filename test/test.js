@@ -15,10 +15,6 @@
 	};
 
 	describe('KmProcessor', function () {
-		var parameters = {
-			fromDate: new Date('2015-04-01'),
-			toDate: new Date('2015-04-03')
-		};
 		var KmExport = require('../lib/index');
 		var kmExport = new KmExport(config);
 		describe('parser', function() {
@@ -37,6 +33,10 @@
 			});
 		});
 		describe('parsed_stream', function() {
+				var parameters = {
+				fromDate: new Date('2015-04-01'),
+				toDate: new Date('2015-04-08')
+			};
 			var stream = kmExport.stream(parameters);
 			it('should stream data', function (done) {
 				this.timeout('60000');
