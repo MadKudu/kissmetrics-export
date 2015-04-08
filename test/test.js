@@ -21,6 +21,21 @@
 		};
 		var KmExport = require('../lib/index');
 		var kmExport = new KmExport(config);
+		describe('parser', function() {
+			var parser = kmExport.parser;
+			it('should parse JSON', function () {
+				var json = '{"abc":"cde"}';
+				expect(parser(json)).to.deep.equal({abc: 'cde'});
+			});
+			it('should ignore empty lines', function () {
+				var json = '';
+				expect(parser(json)).to.be.an('undefined');
+			});
+			it('should reject unparsable lines', function () {
+				var json = 'abc';
+				expect(parser(json)).to.be.an('undefined');
+			});
+		});
 		describe('parsed_stream', function() {
 			var stream = kmExport.stream(parameters);
 			it('should stream data', function (done) {
