@@ -1,6 +1,6 @@
 {
   "name": "kissmetrics-export",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Kissmetrics parser in node.js.",
   "homepage": "https://github.com/MadKudu/kissmetrics-export",
   "author": {
@@ -24,6 +24,7 @@
     "lodash": "^3.6.0",
     "moment": "^2.9.0",
     "q": "^1.2.0",
+    "readable-stream": "^1.0.33",
     "split": "^0.3.3"
   },
   "devDependencies": {
