@@ -33,12 +33,6 @@ var parameters = {
 };
 ```
 
-## Inspiration
-
-https://github.com/clay-whitley/export-export
-https://github.com/HouseTrip/km-db
-https://github.com/mk-anselme/mixpanel-data-export-js
-
 ## License
 
 MIT © [Paul Cothenet](http://attackwithnumbers.com)

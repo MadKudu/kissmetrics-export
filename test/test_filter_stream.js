@@ -14,7 +14,11 @@
 
 	describe('filterObjectByDate', function () {
 		var FilterStream = require('../lib/filter_stream');
-		var stream = new FilterStream();
+		var parameters = {
+			fromDate: new Date('Tue Apr 07 2015 02:00:00 GMT-0700 (PDT)'),
+			toDate: new Date('Tue Apr 07 2015 03:00:00 GMT-0700 (PDT)')
+		};
+		var stream = new FilterStream(parameters);
 		var file = {
 			Key: 'revisions/1896.json',
 			LastModified: new Date('Tue Apr 07 2015 02:44:48 GMT-0700 (PDT)')
@@ -43,26 +47,6 @@
 		var s3 = new S3(config);
 		var ObjectStream = require('../lib/object_stream');
 		var FilterStream = require('../lib/filter_stream');
-		it('filters S3 objects - no date range', function(done) {
-			this.timeout(60000);
-			var filterStream = new FilterStream();
-			var objectStream = new ObjectStream(s3);
-			var stream = objectStream.pipe(filterStream);
-			var counter = 0;
-			stream.on('data', function(data) {
-				counter += 1;
-				expect(data).to.be.not.null;
-			});
-			stream.on('error', function(err) {
-				console.log(err.stack);
-				expect(0).to.equal(1);
-			});
-			stream.on('end', function() {
-				console.log('done');
-				expect(counter).to.equal(2162);
-				done();
-			});
-		});
 		it('filters S3 objects - date range', function(done) {
 			this.timeout(60000);
 			var parameters = {
@@ -112,7 +96,6 @@
 			});
 		});
 		it('filter S3 objects - invalid date range', function() {
-			this.timeout(60000);
 			var parameters = {
 				fromDate: 'abc',
 				toDate: 'cde'
@@ -123,7 +106,14 @@
 			catch (e) {
 				expect(e.message).to.equal('Not a valid date range');
 			}
-
+		});
+		it('filter S3 objects - no date range', function() {
+			try {
+				new FilterStream();
+			}
+			catch (e) {
+				expect(e.message).to.equal('A date range is required');
+			}
 		});
 	});
 }());
