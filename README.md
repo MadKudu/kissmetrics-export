@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/MadKudu/kissmetrics-export.png?label=ready&title=Ready)](https://waffle.io/MadKudu/kissmetrics-export)
 #  [![npm version](https://badge.fury.io/js/kissmetrics-export.svg)](http://badge.fury.io/js/kissmetrics-export) [![Build Status](https://travis-ci.org/MadKudu/kissmetrics-export.svg)](https://travis-ci.org/MadKudu/kissmetrics-export) [![Dependency Status](https://david-dm.org/MadKudu/kissmetrics-export.svg)](https://david-dm.org/MadKudu/kissmetrics-export)
 
 
