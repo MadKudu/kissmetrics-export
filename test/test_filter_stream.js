@@ -50,7 +50,7 @@
 		it('filters S3 objects - date range', function(done) {
 			this.timeout(60000);
 			var parameters = {
-				fromDate: new Date('Tue Apr 07 2015 02:00:00 GMT-0700 (PDT)'),
+				fromDate: new Date('Tue Apr 05 2015 02:00:00 GMT-0700 (PDT)'),
 				toDate: new Date('Tue Apr 07 2015 03:00:00 GMT-0700 (PDT)')
 			};
 			var filterStream = new FilterStream(parameters);
@@ -67,7 +67,7 @@
 			});
 			stream.on('end', function() {
 				console.log('done');
-				expect(counter).to.equal(2146);
+				expect(counter).to.equal(15);
 				done();
 			});
 		});

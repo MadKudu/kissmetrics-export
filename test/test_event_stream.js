@@ -19,17 +19,10 @@
 		var s3 = new S3(config);
 		var EventStream = require('../lib/event_stream');
 		var eventStream = new EventStream(s3);
-		it('should read a single file', function(done) {
-			this.timeout(60000);
-			var file = 'revisions/1899.json';
-			eventStream.readFile(file).then(function() {
-				done();
-			});
-		});
 		it('should read the files coming from an object stream', function(done) {
 			this.timeout(60000);
 			// mock an objectStream
-			var files = ['revisions/1899.json','revisions/1898.json'];
+			var files = ['revisions/2.json','revisions/3.json'];
 			var objectStream = from.obj(function(size, next) {
 				if (files.length <= 0) {
 					return this.push(null);

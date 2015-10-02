@@ -22,7 +22,7 @@
 			var counter = 0;
 			stream.on('data', function(data) {
 				counter += 1;
-				expect(data).to.be.not.null;
+				expect(data).to.be.an('object');
 			});
 			stream.on('error', function(err) {
 				console.log(err.stack);
@@ -30,7 +30,6 @@
 			});
 			stream.on('end', function() {
 				console.log('done');
-				console.log(counter);
 				done();
 			});
 		});
