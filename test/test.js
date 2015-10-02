@@ -21,11 +21,17 @@
 			var parser = kmExport.parser;
 			it('should parse JSON', function () {
 				var json = '{"abc":"cde"}';
-				expect(parser(json)).to.deep.equal({abc: 'cde'});
+				expect(parser(json)).to.be.an('object');
+				expect(parser(json)).to.deep.equal({ abc: 'cde' });
 			});
 			it('should ignore empty lines', function () {
 				var json = '';
 				expect(parser(json)).to.be.an('undefined');
+			});
+			it('should convert octal escapes into something parsable', function () {
+				var json = '{"abc":"cde \\042"}';
+				expect(parser(json)).to.be.an('object');
+				expect(parser(json)).to.deep.equal({ abc: 'cde \\042' });
 			});
 			it('should reject unparsable lines', function () {
 				var json = 'abc';
@@ -34,8 +40,8 @@
 		});
 		describe('stream', function() {
 			var parameters = {
-				fromDate: new Date('2015-04-07 04:00:00'),
-				toDate: new Date('2015-04-07 05:00:00')
+				fromDate: new Date('Tue Apr 05 2015 02:00:00 GMT-0700 (PDT)'),
+				toDate: new Date('Tue Apr 07 2015 03:00:00 GMT-0700 (PDT)')
 			};
 			var stream = kmExport.stream(parameters);
 			it('should stream data', function (done) {
@@ -43,14 +49,14 @@
 				var counter = 0;
 				stream.on('data', function(data) {
 					counter += 1;
-					expect(data).to.be.not.null;
+					expect(data).to.be.an('object');
 				});
 				stream.on('error', function(err) {
 					console.log(err.stack);
 					expect(0).to.equal(1);
 				});
 				stream.on('end', function() {
-					//expect(counter).to.equal(47);
+					expect(counter).to.equal(26);
 					console.log('done');
 					done();
 				});
