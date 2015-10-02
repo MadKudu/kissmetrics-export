@@ -38,19 +38,19 @@
 			it('should reject unparsable lines', function () {
 				var json = 'abc';
 				var parsed_json = parser(json);
-				expect(parsed_json).to.be.an('undefined');
+				expect(parsed_json).to.deep.equal({});
 			});
 			it('should work if the string contains a single quote', function () {
 				var json = "{\"abc\":\"cde ' dfg\"}";
 				var parsed_json = parser(json);
-				console.log('result', parsed_json);
+				// console.log('result', parsed_json);
 				expect(parsed_json).to.be.an('object');
 				expect(parsed_json).to.deep.equal({ abc: 'cde \' dfg' });
 			});
 			it('should work in a real life situation', function () {
 				var json = '{"alert_name":"Random Alert \\303\\241","tracking_source":"backend","campaign_name":"Sent a new email : new_notification3","_n":"email - email sent","subject":"Municipalidad de Paran\\303\\241: Today\'s Top Customers","customer_id":"187675_17lubpfpjhz44co8kcogsggs8ogs44wskgsks808cowogck8ks","_p":"187675_17lubpfpjhz44co8kcogsggs8ogs44wskgsks808cowogck8ks","alert_id":"353719","email_address":"someone@gmail.com","_t":1443603671}';
 				var parsed_json = parser(json);
-				console.log('result', parsed_json);
+				// console.log('result', parsed_json);
 				expect(parsed_json).to.be.an('object');
 			});
 		});
